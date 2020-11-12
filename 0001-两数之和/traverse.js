@@ -35,11 +35,11 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
-  for (var i=0; i<nums.length; i++) {
-    for (var j=1; j<nums.length; j++) {
+var twoSum = function (nums, target) {
+  for (var i = 0; i < nums.length; i++) {
+    for (var j = 1; j < nums.length; j++) {
       if (i !== j && nums[i] + nums[j] === target) {
-        return [i,j]
+        return [i, j]
       }
     }
   }
@@ -47,5 +47,8 @@ var twoSum = function(nums, target) {
 };
 // @lc code=end
 
-var a = twoSum([2, 7, 11, 15], 9)
-console.log('twoSum1', a)
+/**
+ * 通过暴力遍历找到两数之和
+ */
+var res = twoSum([2, 7, 11, 15], 9)
+console.log('twoSum', res)
