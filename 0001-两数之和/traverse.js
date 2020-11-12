@@ -36,8 +36,10 @@
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
+  // 通过暴力遍历找到两数之和
   for (var i = 0; i < nums.length; i++) {
     for (var j = 1; j < nums.length; j++) {
+      // 同一个元素不能使用两遍
       if (i !== j && nums[i] + nums[j] === target) {
         return [i, j]
       }
@@ -47,8 +49,5 @@ var twoSum = function (nums, target) {
 };
 // @lc code=end
 
-/**
- * 通过暴力遍历找到两数之和
- */
 var res = twoSum([2, 7, 11, 15], 9)
 console.log('twoSum', res)
