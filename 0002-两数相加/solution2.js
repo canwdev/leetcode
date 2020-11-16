@@ -10,7 +10,7 @@ function ListNode(val, next) {
 }
 
 // @lc code=start
-function getNumber(listNode) {
+function ListNodeToArray(listNode) {
   var arr = []
 
   while (listNode.next) {
@@ -18,7 +18,7 @@ function getNumber(listNode) {
     listNode = listNode.next
   }
   arr.push(listNode.val)
-  return Number(arr.reverse().join(''))
+  return arr.reverse()
 }
 function toListNode(arr) {
   var listNode, temp
@@ -30,13 +30,30 @@ function toListNode(arr) {
       if (!temp) {
         listNode.next = newNode
         temp = listNode.next
-      } else{
+      } else {
         temp.next = newNode
         temp = temp.next
       }
     }
   }
   return listNode
+}
+function ArrayPlus(a1, a2) {
+  var aShort, aLong
+  if (a1.length > a2.length) {
+    aShort = a2
+  } else {
+    aLong = a1
+  }
+
+  var result = []
+  for (var i = 0; i < aLong.length; i++) {
+    var x = aShort[i]
+    var y = aLong[i]
+    var z = x ? x + y : y
+    result.push(z)
+  }
+  return result
 }
 
 /**
@@ -52,10 +69,11 @@ function toListNode(arr) {
  * @return {ListNode}
  */
 var addTwoNumbers = function (l1, l2) {
-  var n1 = getNumber(l1)
-  var n2 = getNumber(l2)
+  var a1 = ListNodeToArray(l1)
+  var a2 = ListNodeToArray(l2)
 
-  var arr = String(n1 + n2).split('').reverse()
+  var arr = ArrayPlus(a1, a2).reverse()
+  console.log(arr)
   return toListNode(arr)
 };
 // @lc code=end
