@@ -4,6 +4,8 @@
  * [2] 两数相加
  */
 
+ // 这个版本在构思的时候就错了，留着权当备份。
+
 function ListNode(val, next) {
   this.val = (val === undefined ? 0 : val)
   this.next = (next === undefined ? null : next)
@@ -90,18 +92,4 @@ var addTwoNumbers = function(l1, l2) {
 var l1 = toListNode([2, 4, 3])
 var l2 = toListNode([5, 6, 4])
 
-/*
-[2, 4, 3]
-[5, 6, 4]
-
-=> [7,0,8]
-*/
-
 console.log(addTwoNumbers(l1, l2))
-
-/*
-[9,9,9,9,9,9,9]
-[9,9,9,9]
-
-=> [8,9,9,9,0,0,0,1]
-*/

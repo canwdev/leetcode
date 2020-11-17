@@ -48,14 +48,14 @@ var addTwoNumbers = function(l1, l2) {
   if (!l2)
       return l1
 
-  var pre = new ListNode(0)
+  var pre = new ListNode(0) // 创建结果链表
   var cur = pre
 
-  var carry = 0
+  var carry = 0 // 进位
   while (l1 !== null && l2 !== null) {
       var sum = l1.val + l2.val + carry
-      var res = sum % 10
-      carry = parseInt(sum / 10)
+      var res = sum % 10 // 获得个位数
+      carry = parseInt(sum / 10) // 获得进位
 
       cur.next = new ListNode(res)
       cur = cur.next
@@ -64,6 +64,7 @@ var addTwoNumbers = function(l1, l2) {
       l2 = l2.next
   }
 
+  // 遍历剩下的链表项（如果有）
   function lastList(l) {
       while (l) {
           var sum = l.val + carry
@@ -82,6 +83,7 @@ var addTwoNumbers = function(l1, l2) {
       lastList(l2)
   }
 
+  // 最后的进位项
   if (carry !== 0) {
       cur.next = new ListNode(carry)
       cur = cur.next
@@ -95,3 +97,17 @@ var l1 = toListNode([9,9,9,9,9,9,9])
 var l2 = toListNode([9,9,9,9])
 
 console.log(addTwoNumbers(l1, l2))
+
+/*
+[2, 4, 3]
+[5, 6, 4]
+
+=> [7,0,8]
+*/
+
+/*
+[9,9,9,9,9,9,9]
+[9,9,9,9]
+
+=> [8,9,9,9,0,0,0,1]
+*/
