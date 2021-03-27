@@ -38,9 +38,11 @@
 var twoSum = function (nums, target) {
   // 通过暴力遍历找到两数之和
   for (var i = 0; i < nums.length; i++) {
-    for (var j = 1; j < nums.length; j++) {
+    // console.log('i =',i)
+    for (var j = i+1; j < nums.length; j++) {
+      // console.log('j =',j)
       // 同一个元素不能使用两遍
-      if (i !== j && nums[i] + nums[j] === target) {
+      if (nums[i] + nums[j] === target) {
         return [i, j]
       }
     }
