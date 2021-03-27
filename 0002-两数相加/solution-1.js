@@ -24,7 +24,7 @@ function ListNode(val, next) {
  */
 
 // 数组转换为链表
-const toListNode = (arr) => {
+const arrToListNode = (arr) => {
     let root, cur
 
     for (let i = 0; i < arr.length; i++) {
@@ -33,8 +33,8 @@ const toListNode = (arr) => {
             root = newNode
         } else {
             if (!cur) {
-                root.next = newNode
-                cur = root.next
+                cur = newNode
+                root.next = cur
             } else {
                 cur.next = newNode
                 cur = cur.next
@@ -45,7 +45,7 @@ const toListNode = (arr) => {
     return root
 }
 
-const toNumber = (node) => {
+const listNodeToNumber = (node) => {
     let result = '';
 
     let n = node
@@ -57,22 +57,22 @@ const toNumber = (node) => {
     return BigInt(result) // 避免大数使用科学记数法
 }
 
-const toList = (num) => {
+const numberToListNode = (num) => {
     const arr = String(num).split('').map(i => Number(i)).reverse()
 
-    return toListNode(arr)
+    return arrToListNode(arr)
 }
 
 var addTwoNumbers = function (l1, l2) {
-    const n1 = toNumber(l1)
-    const n2 = toNumber(l2)
+    const n1 = listNodeToNumber(l1)
+    const n2 = listNodeToNumber(l2)
     const result = BigInt(n1 + n2)
-    return toList(result)
+    return numberToListNode(result)
 };
 // @lc code=end
 
-var l1 = toListNode([2, 4, 3])
-// var l1 = toListNode([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1])
-var l2 = toListNode([5, 6, 4])
+var l1 = arrToListNode([2, 4, 3])
+// var l1 = arrToListNode([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1])
+var l2 = arrToListNode([5, 6, 4])
 
 console.log(addTwoNumbers(l1, l2))
