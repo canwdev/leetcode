@@ -31,11 +31,11 @@ var lengthOfLongestSubstring = function (s) {
       end++
     }
   }
-  console.log('hashSet', hashSet)
+  // console.log('hashSet', hashSet)
   return max
 };
 // @lc code=end
 
-const result = lengthOfLongestSubstring('abcabcbb')
+const result = lengthOfLongestSubstring('pwwkew')
 
 console.log('result', result)
