@@ -9,22 +9,8 @@ function ListNode(val, next) {
     this.next = (next === undefined ? null : next)
 }
 
-// @lc code=start
-/**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
- * @param {ListNode} l1
- * @param {ListNode} l2
- * @return {ListNode}
- */
-
 // 数组转换为链表
-const arrToListNode = (arr) => {
+/* const arrToListNodeOld = (arr) => {
     let root, cur
 
     for (let i = 0; i < arr.length; i++) {
@@ -43,6 +29,31 @@ const arrToListNode = (arr) => {
     }
 
     return root
+} */
+
+// @lc code=start
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+
+// 数组转换为链表
+const arrToListNode = (arr) => {
+    let pre = new ListNode(arr[0])
+    let cur = pre
+    for (let i = 1; i < arr.length; i++) {
+        cur.next = new ListNode(arr[i])
+        cur = cur.next
+    }
+    return pre
 }
 
 const listNodeToNumber = (node) => {

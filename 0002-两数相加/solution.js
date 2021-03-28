@@ -54,7 +54,7 @@ var addTwoNumbers = function(l1, l2) {
   var carry = 0 // 进位
   while (l1 !== null && l2 !== null) {
       var sum = l1.val + l2.val + carry
-      var res = sum % 10 // 获得个位数
+      var res = sum % 10 // 使用取余运算，获得个位数
       carry = parseInt(sum / 10) // 获得进位
 
       cur.next = new ListNode(res)
