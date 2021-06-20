@@ -30,18 +30,13 @@ var findMedianSortedArrays = function (nums1, nums2) {
     return arr[0]
   }
 
-  let mid
-  if (arr.length % 2 !== 0) {
-    const index = Math.ceil(arr.length / 2)
-    mid = arr[index - 1]
+  const l = arr.length
+  if (l % 2 !== 0) {
+    return arr[Math.ceil(l / 2) - 1]
   } else {
-    const index = (arr.length) / 2
-    // console.log(index)
-    const m1 = arr[index - 1], m2 = arr[index]
-    // console.log(m1, m2)
-    mid = (m1 + m2) / 2
+    const i = l / 2
+    return (arr[i - 1] + arr[i]) / 2
   }
-  return mid
 };
 // @lc code=end
 
